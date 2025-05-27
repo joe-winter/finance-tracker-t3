@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ThemeToggle } from "./theme-toggle";
 
 export const NavBar = () => {
   return (
@@ -13,6 +14,7 @@ export const NavBar = () => {
       <Link href={"/settings"}>
         <Button>Settings</Button>
       </Link>
+      <ThemeToggle />
     </div>
   );
 };

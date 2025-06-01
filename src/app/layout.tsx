@@ -30,18 +30,22 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
-        <body>
-          <header className="flex h-16 items-center justify-end gap-4 p-4">
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
-          <TRPCReactProvider>
+      <TRPCReactProvider>
+        <html
+          lang="en"
+          className={`${geist.variable}`}
+          suppressHydrationWarning
+        >
+          <body>
+            <header className="flex h-16 items-center justify-end gap-4 p-4">
+              <SignedOut>
+                <SignInButton />
+                <SignUpButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </header>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -50,9 +54,9 @@ export default function RootLayout({
             >
               {children}
             </ThemeProvider>
-          </TRPCReactProvider>
-        </body>
-      </html>
+          </body>
+        </html>
+      </TRPCReactProvider>
     </ClerkProvider>
   );
 }

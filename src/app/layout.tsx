@@ -4,14 +4,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "./_components/theme-provider";
 
 export const metadata: Metadata = {
@@ -37,15 +30,6 @@ export default function RootLayout({
           suppressHydrationWarning
         >
           <body>
-            <header className="flex h-16 items-center justify-end gap-4 p-4">
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton />
-              </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
-            </header>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"

@@ -1,21 +1,24 @@
-import { Button } from "@/components/ui/button";
-import { currentUser } from "@clerk/nextjs/server";
+import {
+  ChartNoAxesCombinedIcon,
+  LandmarkIcon,
+  Settings2Icon,
+} from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-
 export const NavBar = async () => {
-  const user = await currentUser();
   return (
-    <div className="flex w-full items-center gap-4">
-      <p>{user?.fullName}</p>
-      <Link href={"/dashboard"}>
-        <Button>Dashboard</Button>
+    <div className="flex w-full items-center justify-between p-4">
+      <Link href={"/dashboard"} className="flex flex-col items-center gap-1">
+        <ChartNoAxesCombinedIcon className="size-8" />
+        <span>Dashboard</span>
       </Link>
-      <Link href={"/finances"}>
-        <Button>Finances</Button>
+      <Link href={"/finances"} className="flex flex-col items-center gap-1">
+        <LandmarkIcon className="size-8" />
+        <span>Spending</span>
       </Link>
-      <Link href={"/settings"}>
-        <Button>Settings</Button>
+      <Link href={"/settings"} className="flex flex-col items-center gap-1">
+        <Settings2Icon className="size-8" />
+        <span>Settings</span>
       </Link>
       <ThemeToggle />
     </div>
